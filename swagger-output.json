@@ -1,0 +1,145 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "My API",
+    "description": "Description",
+    "version": "1.0.0"
+  },
+  "host": "localhost:8080",
+  "basePath": "/",
+  "tags": [{ "name": "bucketlist" }, { "name": "user" }, { "name": "to-do" }],
+  "schemes": ["http", "https"],
+  "paths": {
+    "/bucketlist/api-docs": {
+      "get": {
+        "tags": ["bucketlist"],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/bucketlist/": {
+      "get": {
+        "tags": ["bucketlist"],
+        "description": "",
+        "produces": ["application/json"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": ["bucketlist"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "any"
+                },
+                "location": {
+                  "example": "any"
+                },
+                "date": {
+                  "example": "any"
+                },
+                "price": {
+                  "example": "any"
+                },
+                "pack": {
+                  "example": "any"
+                },
+                "status": {
+                  "example": "any"
+                },
+                "description": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/bucketlist/{id}": {
+      "get": {
+        "tags": ["bucketlist"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": ["to-do"],
+        "summary": "Will allow user to update bucketlist item"
+      },
+      "delete": {
+        "tags": ["to-do"],
+        "summary": "Will allow user to delete a bucketlist item"
+      }
+    },
+    "/user/api-docs": {
+      "get": {
+        "tags": ["user"],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/user/{id}": {
+      "get": {
+        "tags": ["user"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      },
+      "put": {
+        "tags": ["to-do"],
+        "summary": "Will allow user to update username or password"
+      },
+      "delete": {
+        "tags": ["to-do"],
+        "summary": "Will allow a user to be deleted"
+      }
+    },
+    "/user/": {
+      "post": {
+        "tags": ["user"],
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    }
+  }
+}

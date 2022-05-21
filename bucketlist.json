@@ -1,0 +1,31 @@
+{
+  "item": {
+    "name": "Gold Bug",
+    "location": "Salmon, Idaho",
+    "date": "00/00/22",
+    "price": "$0",
+    "pack": "swimsuit, food, sleeping gear",
+    "status": "complete",
+    "description": "hike up to hotsprings"
+  },
+
+  "item2": {
+    "name": "Cliff Lake",
+    "location": "Montana",
+    "date": "00/00/22",
+    "price": "$0",
+    "pack": "tent, food, kayaks",
+    "status": "incomplete",
+    "description": "camping and kayaking"
+  },
+
+  "item3": {
+    "name": "River Rafting",
+    "location": "Wyoming",
+    "date": "00/00/22",
+    "price": "$20",
+    "pack": "swimsuit, food",
+    "status": "incomplete",
+    "description": "rafting down a river"
+  }
+}
