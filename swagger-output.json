@@ -7,7 +7,7 @@
   },
   "host": "bucketlist341.herokuapp.com",
   "basePath": "/",
-  "tags": [{ "name": "bucketlist" }, { "name": "user" }, { "name": "to-do" }],
+  "tags": [{ "name": "bucketlist" }, { "name": "user" }],
   "schemes": ["http", "https"],
   "paths": {
     "/bucketlist/api-docs": {
@@ -94,11 +94,11 @@
         }
       },
       "put": {
-        "tags": ["to-do"],
+        "tags": ["bucketlist"],
         "summary": "Will allow user to update bucketlist item"
       },
       "delete": {
-        "tags": ["to-do"],
+        "tags": ["bucketlist"],
         "summary": "Will allow user to delete a bucketlist item"
       }
     },
@@ -125,11 +125,11 @@
         "responses": {}
       },
       "put": {
-        "tags": ["to-do"],
+        "tags": ["user"],
         "summary": "Will allow user to update username or password"
       },
       "delete": {
-        "tags": ["to-do"],
+        "tags": ["user"],
         "summary": "Will allow a user to be deleted"
       }
     },
