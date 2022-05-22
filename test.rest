@@ -1,0 +1,41 @@
+GET http://localhost:8080/bucketlist
+
+###
+
+GET http://localhost:8080/bucketlist/628723cbdb9b23eba535d491
+
+###
+
+POST http://localhost:8080/bucketlist HTTP/1.1 content-type: application/json
+
+{
+    "name": "Astoria Hot Springs",
+    "location": "Wyoming",
+    "date": "00/00/22",
+    "price": "$0",
+    "pack": "swimsuit, towel",
+    "status": "incomplete",
+    "description": "chill in the Hot Springs"
+}
+
+###
+
+GET https://bucketlist341.herokuapp.com/bucketlist 
+
+###
+
+GET https://bucketlist341.herokuapp.com/bucketlist/628723cbdb9b23eba535d491
+
+###
+
+POST https://bucketlist341.herokuapp.com/bucketlist HTTP/1.1 content-type: application/json
+
+{
+    "name": "Astoria Hot Springs",
+    "location": "Wyoming",
+    "date": "00/00/22",
+    "price": "$0",
+    "pack": "swimsuit, towel",
+    "status": "incomplete",
+    "description": "chill in the Hot Springs"
+}
