@@ -5,7 +5,7 @@
     "description": "Description",
     "version": "1.0.0"
   },
-  "host": "bucketlist341.herokuapp.com",
+  "host": "bucketlist341.herokuapp.com/",
   "basePath": "/",
   "tags": [{ "name": "bucketlist" }, { "name": "user" }, { "name": "to-do" }],
   "schemes": ["http", "https"],
