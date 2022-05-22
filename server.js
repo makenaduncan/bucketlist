@@ -6,7 +6,7 @@ const cors = require("cors");
 const port = process.env.PORT || 8080;
 
 const bucketlistRoutes = require("./routes/bucketlistRoutes");
-const userRoutes = require("./routes/userRoutes");
+// const userRoutes = require("./routes/userRoutes");
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -20,7 +20,7 @@ app.use((req, res, next) => {
   next();
 });
 app.use("/bucketlist", bucketlistRoutes);
-app.use("/user", userRoutes);
+// app.use("/user", userRoutes);
 
 mongodb.initDb((err) => {
   if (err) {
