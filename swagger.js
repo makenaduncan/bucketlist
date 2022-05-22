@@ -9,7 +9,7 @@ const doc = {
   schemes: ["https"],
 };
 
-const outputFile = "swagger-output.json";
+const outputFile = "swagger-output.json/bucketlist";
 const endpointsFiles = ["./server.js"];
 
 /* NOTE: if you use the express Router, you must pass in the 
