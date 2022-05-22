@@ -5,7 +5,7 @@ const doc = {
     title: "My API",
     description: "Description",
   },
-  host: "bucketlist341.herokuapp.com/bucketlist",
+  host: "bucketlist341.herokuapp.com",
   schemes: ["https"],
 };
 
