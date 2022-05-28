@@ -3,13 +3,19 @@ const ObjectId = require("mongodb").ObjectId;
 
 const getBucketlist = async (req, res) => {
   const result = await mongodb.getDb().db().collection("items").find();
-  result.toArray().then((lists) => {
+  result.toArray().then((err, lists) => {
+    if (err) {
+      res.status(400).json({ message: err });
+    }
     res.setHeader("Content-Type", "application/json");
     res.status(200).json(lists);
   });
 };
 
 const getBucketlistItem = async (req, res) => {
+  if (!ObjectId.isValid(req.params.id)) {
+    res.status(400).json("Must input a valid id");
+  }
   const result = await mongodb
     .getDb()
     .db()
@@ -31,7 +37,6 @@ const createBucketlistItem = async (req, res) => {
     status: req.body.status,
     description: req.body.description,
   };
-
   const response = await mongodb
     .getDb()
     .db()
@@ -49,4 +54,62 @@ const createBucketlistItem = async (req, res) => {
   }
 };
 
-module.exports = { getBucketlist, getBucketlistItem, createBucketlistItem };
+const updateBucketlistItem = async (req, res) => {
+  if (!ObjectId.isValid(req.params.id)) {
+    res.status(400).json("Must input a valid id");
+  }
+  const userId = new ObjectId(req.params.id);
+  // be aware of updateOne if you only want to update specific fields
+  const contact = {
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    email: req.body.email,
+    favoriteColor: req.body.favoriteColor,
+    birthday: req.body.birthday,
+  };
+  const response = await mongodb
+    .getDb()
+    .db()
+    .collection("items")
+    .replaceOne({ _id: userId }, contact);
+  console.log(response);
+  if (response.modifiedCount > 0) {
+    res.status(204).send();
+  } else {
+    res
+      .status(500)
+      .json(
+        response.error || "Some error occurred while updating the contact."
+      );
+  }
+};
+
+const deleteBucketlistItem = async (req, res) => {
+  if (!ObjectId.isValid(req.params.id)) {
+    res.status(400).json("Must input a valid id");
+  }
+  const userId = new ObjectId(req.params.id);
+  const response = await mongodb
+    .getDb()
+    .db()
+    .collection("items")
+    .remove({ _id: userId }, true);
+  console.log(response);
+  if (response.deletedCount > 0) {
+    res.status(204).send();
+  } else {
+    res
+      .status(500)
+      .json(
+        response.error || "Some error occurred while deleting the contact."
+      );
+  }
+};
+
+module.exports = {
+  getBucketlist,
+  getBucketlistItem,
+  createBucketlistItem,
+  updateBucketlistItem,
+  deleteBucketlistItem,
+};
