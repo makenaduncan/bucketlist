@@ -109,19 +109,25 @@
             "schema": {
               "type": "object",
               "properties": {
-                "firstName": {
+                "name": {
                   "example": "any"
                 },
-                "lastName": {
+                "location": {
                   "example": "any"
                 },
-                "email": {
+                "date": {
                   "example": "any"
                 },
-                "favoriteColor": {
+                "price": {
                   "example": "any"
                 },
-                "birthday": {
+                "pack": {
+                  "example": "any"
+                },
+                "status": {
+                  "example": "any"
+                },
+                "description": {
                   "example": "any"
                 }
               }
