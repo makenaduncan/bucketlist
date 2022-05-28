@@ -62,11 +62,13 @@ const updateBucketlistItem = async (req, res) => {
   const userId = new ObjectId(req.params.id);
   // be aware of updateOne if you only want to update specific fields
   const contact = {
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    email: req.body.email,
-    favoriteColor: req.body.favoriteColor,
-    birthday: req.body.birthday,
+    name: req.body.name,
+    location: req.body.location,
+    date: req.body.date,
+    price: req.body.price,
+    pack: req.body.pack,
+    status: req.body.status,
+    description: req.body.description,
   };
   const response = await mongodb
     .getDb()
