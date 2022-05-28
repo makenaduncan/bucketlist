@@ -7,9 +7,7 @@
   },
   "host": "bucketlist341.herokuapp.com",
   "basePath": "/",
-  "schemes": [
-    "https"
-  ],
+  "schemes": ["http", "https"],
   "paths": {
     "/bucketlist/api-docs": {
       "get": {
@@ -21,9 +19,7 @@
     "/bucketlist/": {
       "get": {
         "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "parameters": [],
         "responses": {
           "200": {
