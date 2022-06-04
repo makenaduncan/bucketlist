@@ -1,14 +1,14 @@
-const { UserInputError } = require("apollo-server-express");
+// const { UserInputError } = require("apollo-server-express");
 const mongodb = require("../db/connect");
 const ObjectId = require("mongodb").ObjectId;
 
 const getBucketlist = async (req, res) => {
   const result = await mongodb.getDb().db().collection("items").find();
-  result.toArray().then((err, lists) => {
-    if (err) {
-      res.status(400).json({ message: err });
-      return;
-    }
+  result.toArray().then((lists) => {
+    // if (err) {
+    //   res.status(400).json({ message: err });
+    //   return;
+    // }
     res.setHeader("Content-Type", "application/json");
     res.status(200).json(lists);
   });
