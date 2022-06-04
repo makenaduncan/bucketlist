@@ -4,36 +4,15 @@ const ObjectId = require("mongodb").ObjectId;
 
 const getBucketlist = async (req, res) => {
   const result = await mongodb.getDb().db().collection("items").find();
-  try {
-    result
-      .toArray()
-      .then((err, lists) => {})
-      .then((data) => {
-        res.status(200).send(data);
-      })
-      .catch((err) => {
-        res.status(500).send({
-          message:
-            err.message ||
-            "Some error occured while retrieving the bucketlist.",
-        });
-      });
-  } catch (err) {
-    res.status(500).json(err);
-  }
+  result.toArray().then((err, lists) => {
+    if (err) {
+      res.status(400).json({ message: err });
+      return;
+    }
+    res.setHeader("Content-Type", "application/json");
+    res.status(200).json(lists);
+  });
 };
-
-// const getBucketlist = async (req, res) => {
-//   const result = await mongodb.getDb().db().collection("items").find();
-//   result.toArray().then((err, lists) => {
-//     if (err) {
-//       res.status(400).json({ message: err });
-//       return;
-//     }
-//     res.setHeader("Content-Type", "application/json");
-//     res.status(200).json(lists);
-//   });
-// };
 
 const getBucketlistItem = async (req, res) => {
   if (!ObjectId.isValid(req.params.id)) {
