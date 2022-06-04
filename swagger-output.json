@@ -7,10 +7,12 @@
   },
   "host": "bucketlist341.herokuapp.com",
   "basePath": "/",
+  "tags": [{ "name": "bucketlist" }, { "name": "user" }],
   "schemes": ["http", "https"],
   "paths": {
     "/bucketlist/api-docs": {
       "get": {
+        "tags": ["bucketlist"],
         "description": "",
         "parameters": [],
         "responses": {}
@@ -18,6 +20,7 @@
     },
     "/bucketlist/": {
       "get": {
+        "tags": ["bucketlist"],
         "description": "",
         "produces": ["application/json"],
         "parameters": [],
@@ -31,6 +34,7 @@
         }
       },
       "post": {
+        "tags": ["bucketlist"],
         "description": "",
         "parameters": [
           {
@@ -76,6 +80,7 @@
     },
     "/bucketlist/{id}": {
       "get": {
+        "tags": ["bucketlist"],
         "description": "",
         "parameters": [
           {
@@ -95,6 +100,7 @@
         }
       },
       "put": {
+        "tags": ["bucketlist"],
         "description": "",
         "parameters": [
           {
@@ -147,6 +153,7 @@
         }
       },
       "delete": {
+        "tags": ["bucketlist"],
         "description": "",
         "parameters": [
           {
