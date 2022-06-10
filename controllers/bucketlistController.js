@@ -16,7 +16,7 @@ const getBucketlist = async (req, res) => {
 
 const getBucketlistItem = async (req, res) => {
   if (!ObjectId.isValid(req.params.id)) {
-    res.status(200).json(response);
+    res.status(400).json("Must input a valid id");
   }
   const result = await mongodb
     .getDb()
@@ -25,7 +25,7 @@ const getBucketlistItem = async (req, res) => {
     .find({ _id: new ObjectId(req.params.id) });
 
   result.toArray().then((response) => {
-    res.status(400).json("Must input a valid id");
+    res.status(200).json(response);
   });
 };
 

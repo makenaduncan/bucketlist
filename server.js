@@ -27,7 +27,7 @@ app.get("/", (req, res) => {
   res.send(req.oidc.isAuthenticated() ? "Logged in" : "Logged out");
 });
 
-app.get("/profile", requiresAuth(), (req, res) => {
+app.get("/user", requiresAuth(), (req, res) => {
   res.send(JSON.stringify(req.oidc.user));
 });
 
@@ -42,8 +42,8 @@ app.use((req, res, next) => {
   );
   next();
 });
-app.use("/bucketlist", bucketlistRoutes);
-// app.use("/user", userRoutes);
+app.use("/bucketlist", requiresAuth(), bucketlistRoutes);
+app.use("/user", requiresAuth(), userRoutes);
 
 mongodb.initDb((err) => {
   if (err) {

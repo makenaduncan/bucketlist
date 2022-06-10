@@ -8,6 +8,4 @@ routes.get("/api-docs", swaggerUi.setup(swaggerDocument));
 
 routes.get("/:id", userController.getUser);
 
-routes.post("/", userController.createUser);
-
 module.exports = routes;

@@ -13,28 +13,4 @@ const getUser = async (req, res) => {
   });
 };
 
-const createUser = async (req, res) => {
-  const item = {
-    name: req.body.name,
-    username: req.body.username,
-    password: req.body.password,
-  };
-
-  const response = await mongodb
-    .getDb()
-    .db()
-    .collection("user")
-    .insertOne(item);
-  if (response.acknowledged) {
-    res.status(201).json(response);
-  } else {
-    res
-      .status(500)
-      .json(
-        response.error ||
-          "Some error occurred while creating the bucketlist item."
-      );
-  }
-};
-
-module.exports = { getUser, createUser };
+module.exports = { getUser };
