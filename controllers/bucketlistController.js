@@ -15,6 +15,7 @@ const getBucketlist = async (req, res) => {
 };
 
 const getBucketlistItem = async (req, res) => {
+  console.log("HERE" + req.params.id);
   if (!ObjectId.isValid(req.params.id)) {
     res.status(400).json("Must input a valid id");
   }
