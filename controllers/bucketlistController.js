@@ -46,7 +46,7 @@ const createBucketlistItem = async (req, res) => {
     .collection("items")
     .insertOne(item);
   if (response.acknowledged) {
-    res.status(201).json(response);
+    res.status(200).json(response);
   } else {
     res
       .status(500)
@@ -79,7 +79,7 @@ const updateBucketlistItem = async (req, res) => {
     .replaceOne({ _id: userId }, contact);
   console.log(response);
   if (response.modifiedCount > 0) {
-    res.status(204).send();
+    res.status(200).send();
   } else {
     res
       .status(500)
@@ -101,7 +101,7 @@ const deleteBucketlistItem = async (req, res) => {
     .remove({ _id: userId }, true);
   console.log(response);
   if (response.deletedCount > 0) {
-    res.status(204).send();
+    res.status(200).send();
   } else {
     res
       .status(500)
